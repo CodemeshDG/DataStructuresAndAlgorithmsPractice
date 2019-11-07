@@ -4,8 +4,7 @@ public class HighArrayApp {
 
     public static void main(String[] args) {
         int maxSize = 100;
-        HighArray array;
-        array = new HighArray(maxSize);
+        HighArray array = new HighArray(maxSize);
 
         array.insert(77);
         array.insert(99);
@@ -27,9 +26,9 @@ public class HighArrayApp {
             System.out.println("Can't find " + searchKey);
         }
 
-        array.delete(0);
-        array.delete(55);
-        array.delete(99);
+        array.deleteValue(0);
+        array.deleteValue(55);
+        array.deleteValue(99);
 
         array.display();
 
@@ -39,6 +38,26 @@ public class HighArrayApp {
             arraySorted.display();
         }
 
+        HighArray arrayDuplicates = new HighArray(maxSize);
+
+        arrayDuplicates.insert(14);
+        arrayDuplicates.insert(76);
+        arrayDuplicates.insert(43);
+        arrayDuplicates.insert(95);
+        arrayDuplicates.insert(76);
+        arrayDuplicates.insert(22);
+        arrayDuplicates.insert(10);
+        arrayDuplicates.insert(5);
+        arrayDuplicates.insert(43);
+        arrayDuplicates.insert(14);
+        arrayDuplicates.insert(76);
+        arrayDuplicates.insert(43);
+
+        arrayDuplicates.display();
+
+        arrayDuplicates.noDups();
+
+        arrayDuplicates.display();
     }
 }
 
@@ -51,7 +70,7 @@ class HighArray {
         totalItems = 0;
     }
 
-    public int getTotalItems() {
+    int getTotalItems() {
         return totalItems;
     }
 
@@ -70,7 +89,7 @@ class HighArray {
         totalItems++;
     }
 
-    void delete(long value) {
+    void deleteValue(long value) {
         int j;
         for (j = 0; j < totalItems; j++) {
             if (value == array[j]) {
@@ -78,9 +97,13 @@ class HighArray {
             }
         }
         if (j != totalItems) {
-            System.arraycopy(array, j + 1, array, j, totalItems - j);
-            totalItems--;
+            deleteFromPosition(j);
         }
+    }
+
+    void deleteFromPosition(int position) {
+        System.arraycopy(array, position + 1, array, position, totalItems - position);
+        totalItems--;
     }
 
     void display() {
@@ -100,7 +123,18 @@ class HighArray {
                 max = array[j];
             }
         }
-        delete(max);
+        deleteValue(max);
         return max;
+    }
+
+    void noDups() {
+        for (int i = 0; totalItems > i; i++) {
+            for (int x = i +1; totalItems > x; x++) {
+                if (array[i] == array[x]) {
+                    deleteFromPosition(x);
+                    x--;
+                }
+            }
+        }
     }
 }
