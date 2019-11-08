@@ -1,6 +1,8 @@
-package com.dommyg;
+package com.dommyg.higharrayapp;
 
 /**
+ * Allows for practice with unsorted arrays. Practice problems are detailed below.
+ *
  * 2.1 To the HighArray class, add a method called getMax() that returns the value of the highest key in the array or -1
  * if the array is empty. Add some code in main() to exercise this method. You can assume all the keys are positive numbers.
  *
@@ -35,9 +37,17 @@ public class HighArrayApp {
         array.insert(66);
         array.insert(33);
 
+        // Displays 77 99 44 55 22 88 11 0 66 33
         array.display();
 
         int searchKey = 35;
+        if (array.find(searchKey)) {
+            System.out.println("Found " + searchKey);
+        } else {
+            System.out.println("Can't find " + searchKey);
+        }
+
+        searchKey = 55;
         if (array.find(searchKey)) {
             System.out.println("Found " + searchKey);
         } else {
@@ -48,8 +58,10 @@ public class HighArrayApp {
         array.deleteValue(55);
         array.deleteValue(99);
 
+        // Displays 77 44 22 88 11 66 33
         array.display();
 
+        // When complete, displays 88 77 66 44 33 22 11
         HighArray arraySorted = new HighArray(maxSize);
         while (array.getTotalItems() != 0) {
             arraySorted.insert(array.removeMax());
@@ -61,20 +73,26 @@ public class HighArrayApp {
         arrayDuplicates.insert(14);
         arrayDuplicates.insert(76);
         arrayDuplicates.insert(43);
+        arrayDuplicates.insert(10);
         arrayDuplicates.insert(95);
+        arrayDuplicates.insert(76);
+        arrayDuplicates.insert(14);
+        arrayDuplicates.insert(10);
+        arrayDuplicates.insert(43);
         arrayDuplicates.insert(76);
         arrayDuplicates.insert(22);
         arrayDuplicates.insert(10);
+        arrayDuplicates.insert(43);
+        arrayDuplicates.insert(22);
+        arrayDuplicates.insert(22);
         arrayDuplicates.insert(5);
-        arrayDuplicates.insert(43);
-        arrayDuplicates.insert(14);
-        arrayDuplicates.insert(76);
-        arrayDuplicates.insert(43);
 
+        // Displays 14 76 43 10 95 76 14 10 43 76 22 10 43 22 22 5
         arrayDuplicates.display();
 
         arrayDuplicates.noDups();
 
+        // Displays 14 76 43 10 95 22 5
         arrayDuplicates.display();
     }
 }
@@ -92,21 +110,30 @@ class HighArray {
         return totalItems;
     }
 
+    /**
+     * Reports if a search key is found in the array.
+     */
     boolean find(long searchKey) {
         int j;
         for (j = 0; j < totalItems; j++) {
             if (array[j] == searchKey) {
-                break;
+                return true;
             }
         }
-        return j == totalItems;
+        return false;
     }
 
+    /**
+     * Inserts a value at the totalItems position and increases totalItems by 1.
+     */
     void insert(long value) {
         array[totalItems] = value;
         totalItems++;
     }
 
+    /**
+     * Searches for a value and deletes it if found.
+     */
     void deleteValue(long value) {
         int j;
         for (j = 0; j < totalItems; j++) {
@@ -119,11 +146,18 @@ class HighArray {
         }
     }
 
-    void deleteFromPosition(int position) {
+    /**
+     * Deletes the value from a given position by shifting down all subsequent values by one.
+     * Decreases totalItems by one.
+     */
+    private void deleteFromPosition(int position) {
         System.arraycopy(array, position + 1, array, position, totalItems - position);
         totalItems--;
     }
 
+    /**
+     * Prints out each element in the array up to the totalItems amount.
+     */
     void display() {
         for (int j = 0; j < totalItems; j++) {
             System.out.print(array[j] + " ");
@@ -131,6 +165,9 @@ class HighArray {
         System.out.println();
     }
 
+    /**
+     * Finds, removes, and returns the largest key in the array.
+     */
     long removeMax() {
         long max = -1;
         if (totalItems == 0) {
@@ -145,14 +182,45 @@ class HighArray {
         return max;
     }
 
+    /**
+     * Finds and removes duplicate keys in the array.
+     */
     void noDups() {
-        for (int i = 0; totalItems > i; i++) {
-            for (int x = i +1; totalItems > x; x++) {
-                if (array[i] == array[x]) {
-                    deleteFromPosition(x);
-                    x--;
+        // After doing exercise 3.3 in InsertSortApp, I modified my approach, which I left commented out at top. Went from
+        // 44 shifts to 3 with the test case in main(). This is nearly 15 times more efficient in this case.
+
+//        for (int i = 0; totalItems < i; i++) {
+//            for (int x = i + 1; x > totalItems; x++) {
+//                if (array[i] == array[x]) {
+//                    deleteFromPosition(x);
+//                    x--;
+//                }
+//            }
+//        }
+
+        for (int i = 0; i < totalItems; i++) {
+            if (array[i] != -1) {
+                for (int x = i + 1; x < totalItems; x++) {
+                    if (array[x] != -1) {
+                        if (array[x] == array[i]) {
+                            array[x] = -1;
+                        }
+                    }
                 }
             }
         }
+
+        int shift = 0;
+
+        for (int i = 0; i < totalItems; i++) {
+            if (array[i] == -1) {
+                shift++;
+            } else {
+                if (shift > 0) {
+                    array[i - shift] = array[i];
+                }
+            }
+        }
+        totalItems -= shift;
     }
 }
