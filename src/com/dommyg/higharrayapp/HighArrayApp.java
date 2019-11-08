@@ -199,10 +199,13 @@ class HighArray {
 //        }
 
         for (int i = 0; i < totalItems; i++) {
+            // Loop to remove duplicates by marking them as -1.
             if (array[i] != -1) {
                 for (int x = i + 1; x < totalItems; x++) {
+                    // If current cell's value is not -1, check it against the subsequent cells.
                     if (array[x] != -1) {
                         if (array[x] == array[i]) {
+                            // If checked cell's value is not -1 and matches current cell, change to -1.
                             array[x] = -1;
                         }
                     }
@@ -210,17 +213,21 @@ class HighArray {
             }
         }
 
+        // Shift keeps track of how far back values need to be shifted.
         int shift = 0;
 
         for (int i = 0; i < totalItems; i++) {
             if (array[i] == -1) {
+                // If checked value is -1, add one to shift.
                 shift++;
             } else {
                 if (shift > 0) {
+                    // If checked value is not -1, shift it down if needed.
                     array[i - shift] = array[i];
                 }
             }
         }
+        // All duplicates removed. Update totalItems to reflect amount of duplicates removed.
         totalItems -= shift;
     }
 }
