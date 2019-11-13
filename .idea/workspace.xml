@@ -47,7 +47,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.dommyg.bubblesortapp.BubbleSortApp" />
+      <option name="MAIN_CLASS_NAME" value="com.dommyg.queueapp.QueueApp" />
       <module name="DataStructuresAndAlgorithmsPractice" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
