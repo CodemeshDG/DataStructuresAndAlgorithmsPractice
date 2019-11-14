@@ -37,7 +37,7 @@ public class HighArrayApp {
         array.insert(66);
         array.insert(33);
 
-        // Displays 77 99 44 55 22 88 11 0 66 33
+        // PRINT: 77 99 44 55 22 88 11 0 66 33
         array.display();
 
         int searchKey = 35;
@@ -58,10 +58,10 @@ public class HighArrayApp {
         array.deleteValue(55);
         array.deleteValue(99);
 
-        // Displays 77 44 22 88 11 66 33
+        // PRINT: 77 44 22 88 11 66 33
         array.display();
 
-        // When complete, displays 88 77 66 44 33 22 11
+        // When complete, PRINT: 88 77 66 44 33 22 11
         HighArray arraySorted = new HighArray(maxSize);
         while (array.getTotalItems() != 0) {
             arraySorted.insert(array.removeMax());
@@ -87,12 +87,12 @@ public class HighArrayApp {
         arrayDuplicates.insert(22);
         arrayDuplicates.insert(5);
 
-        // Displays 14 76 43 10 95 76 14 10 43 76 22 10 43 22 22 5
+        // PRINT: 14 76 43 10 95 76 14 10 43 76 22 10 43 22 22 5
         arrayDuplicates.display();
 
         arrayDuplicates.noDups();
 
-        // Displays 14 76 43 10 95 22 5
+        // PRINT: 14 76 43 10 95 22 5
         arrayDuplicates.display();
     }
 }

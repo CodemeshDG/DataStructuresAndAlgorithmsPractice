@@ -37,12 +37,12 @@ public class InsertSortApp {
         array.insert(66);
         array.insert(33);
 
-        // Displays 77 99 44 55 22 88 11 0 66 33
+        // PRINT: 77 99 44 55 22 88 11 0 66 33
         array.display();
 
         array.insertionSort();
 
-        // Displays 0 11 22 33 44 55 66 77 88 99
+        // PRINT: 0 11 22 33 44 55 66 77 88 99
         array.display();
 
         System.out.println("Median is " + array.median());
@@ -54,17 +54,17 @@ public class InsertSortApp {
         array.insert(88);
         array.insert(66);
 
-        // Displays 0 11 22 33 44 55 66 77 88 99 44 44 88 88 88 66
+        // PRINT: 0 11 22 33 44 55 66 77 88 99 44 44 88 88 88 66
         array.display();
 
         array.insertionSort();
 
-        // Displays 0 11 22 33 44 44 44 55 66 66 77 88 88 88 88 99
+        // PRINT: 0 11 22 33 44 44 44 55 66 66 77 88 88 88 88 99
         array.display();
 
         array.noDups();
 
-        // Displays 0 11 22 33 44 55 66 77 88 99
+        // PRINT: 0 11 22 33 44 55 66 77 88 99
         array.display();
 
     }

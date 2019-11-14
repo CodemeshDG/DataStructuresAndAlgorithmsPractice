@@ -33,12 +33,12 @@ public class BubbleSortApp {
         array.insert(66);
         array.insert(33);
 
-        // Displays 77 99 44 55 22 88 11 0 66 33
+        // PRINT: 77 99 44 55 22 88 11 0 66 33
         array.display();
 
         array.bubbleSort();
 
-        // Displays 0 11 22 33 44 55 66 77 88 99
+        // PRINT: 0 11 22 33 44 55 66 77 88 99
         array.display();
 
         ArrayBubble array2 = new ArrayBubble(maxSize);
@@ -54,12 +54,12 @@ public class BubbleSortApp {
         array2.insert(66);
         array2.insert(33);
 
-        // Displays 77 99 44 55 22 88 11 0 66 33
+        // PRINT: 77 99 44 55 22 88 11 0 66 33
         array2.display();
 
         array2.oddEvenSort();
 
-        // Displays 0 11 22 33 44 55 66 77 88 99
+        // PRINT: 0 11 22 33 44 55 66 77 88 99
         array2.display();
 
         ArrayBubble array3 = new ArrayBubble(maxSize);
@@ -115,13 +115,13 @@ public class BubbleSortApp {
         array3.insert(85);
         array3.insert(101);
 
-        // Displays 67 23 11 74 158 462 3 84 35 78 45 99 8 29 75 55 249 98 63 21 0 69 74 100 95 43 24 28 17 2 9000 34
+        // PRINT: 67 23 11 74 158 462 3 84 35 78 45 99 8 29 75 55 249 98 63 21 0 69 74 100 95 43 24 28 17 2 9000 34
         // 77 65 47 98 89 40 60 81 112 456 38 33 12 19 27 62 85 101
         array3.display();
 
         array3.oddEvenSort();
 
-        // Displays 0 2 3 8 11 12 17 19 21 23 24 27 28 29 33 34 35 38 40 43 45 47 55 60 62 63 65 67 69 74 74 75 77 78
+        // PRINT: 0 2 3 8 11 12 17 19 21 23 24 27 28 29 33 34 35 38 40 43 45 47 55 60 62 63 65 67 69 74 74 75 77 78
         // 81 84 85 89 95 98 98 99 100 101 112 158 249 456 462 9000
         array3.display();
     }

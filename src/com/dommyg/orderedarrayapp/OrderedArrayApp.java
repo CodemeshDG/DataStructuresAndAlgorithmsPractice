@@ -41,14 +41,14 @@ public class OrderedArrayApp {
         else
             System.out.println("Can't find " + searchKey);
 
-        // Displays 0 11 22 33 44 55 66 77 88 99
+        // PRINT: 0 11 22 33 44 55 66 77 88 99
         array1.display();
 
         array1.delete(0);
         array1.delete(55);
         array1.delete(99);
 
-        // Displays 11 22 33 44 66 77 88
+        // PRINT: 11 22 33 44 66 77 88
         array1.display();
 
         OrderedArray array2 = new OrderedArray(maxSize);
@@ -64,12 +64,12 @@ public class OrderedArrayApp {
         array2.insert(48);
         array2.insert(64);
 
-        // Displays 5 9 23 38 43 48 64 65 71 87
+        // PRINT: 5 9 23 38 43 48 64 65 71 87
         array2.display();
 
         OrderedArray array3 = array1.merge(array2);
 
-        // Displays 5 9 11 22 23 33 38 43 44 48 64 65 66 71 77 87 88
+        // PRINT: 5 9 11 22 23 33 38 43 44 48 64 65 66 71 77 87 88
         array3.display();
 
     }

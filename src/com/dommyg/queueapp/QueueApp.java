@@ -31,10 +31,10 @@ public class QueueApp {
         queue.insert(70);
         queue.insert(80);
 
-        // Displays In queue: 40 50 60 70 80
+        // PRINT: In queue: 40 50 60 70 80
         queue.display();
 
-        // Displays 40 50 60 70 80
+        // PRINT: 40 50 60 70 80
         while (!queue.isEmpty()) {
             long n = queue.remove();
             System.out.print(n);
@@ -42,7 +42,7 @@ public class QueueApp {
         }
         System.out.println();
 
-        // Displays There are no items in the queue
+        // PRINT: There are no items in the queue
         queue.display();
 
         queue = new Queue(18);
@@ -66,7 +66,7 @@ public class QueueApp {
         queue.insert(71);
         queue.insert(62);
 
-        // Displays In queue: 66 45 90 82 74 63 74 78 68 21 55 94 88 74 36 86 71 62
+        // PRINT: In queue: 66 45 90 82 74 63 74 78 68 21 55 94 88 74 36 86 71 62
         queue.display();
 
         Deque deque = new Deque(10);
@@ -76,32 +76,32 @@ public class QueueApp {
         deque.insertRight(3);
         deque.insertRight(5);
 
-        // Displays In queue (left to right): 2 6 3 5
+        // PRINT: In queue (left to right): 2 6 3 5
         deque.display();
 
         deque.insertLeft(8);
         deque.insertLeft(4);
         deque.insertLeft(7);
 
-        // Displays In queue (left to right): 7 4 8 2 6 3 5
+        // PRINT: In queue (left to right): 7 4 8 2 6 3 5
         deque.display();
 
-        // Displays 7
+        // PRINT: 7
         System.out.println(deque.removeLeft());
 
-        // Displays 4
+        // PRINT: 4
         System.out.println(deque.removeLeft());
 
-        // Displays 5
+        // PRINT: 5
         System.out.println(deque.removeRight());
 
-        // Displays 3
+        // PRINT: 3
         System.out.println(deque.removeRight());
 
-        // Displays 8
+        // PRINT: 8
         System.out.println(deque.removeLeft());
 
-        // Displays 2
+        // PRINT: 2
         System.out.println(deque.removeLeft());
     }
 }
