@@ -55,14 +55,11 @@ public class LinkedListApp {
     }
 }
 
-/**
- * Creates a priority queue which orders data in ascending order.
- */
-class PriorityQueue {
-    private Link first;
-    private ListIterator iterator;
+class LinkedListQueue {
+    Link first;
+    ListIterator iterator;
 
-    PriorityQueue(long d) {
+    LinkedListQueue(long d) {
         first = new Link(d);
         iterator = new ListIterator(this);
     }
@@ -72,8 +69,85 @@ class PriorityQueue {
     }
 
     /**
+     * Inserts a data value at the end of the queue.
+     */
+    void insert(long d) {
+        if (isEmpty()) {
+            // If queue is empty, make the data the first link.
+            first = new Link(d);
+        } else {
+            // Start at the beginning of queue.
+            iterator.reset();
+            while (true) {
+                if (iterator.getCurrent().getData() < d) {
+                    // Data is larger than iterator's current data value.
+                    if (iterator.atEnd()) {
+                        // Cannot go any further. Must place data at end of queue.
+                        insertAfterPoint(d);
+                        break;
+                    } else {
+                        // Go to the next link.
+                        iterator.nextLink();
+                    }
+                } else {
+                    // Data is smaller than iterator's current data value.
+                    insertAtPoint(d);
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * Removes and returns the next element in the queue.
+     */
+    long dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty.");
+            return -1;
+        }
+        Link temp = first;
+        iterator.reset();
+        iterator.nextLink();
+        first = iterator.getCurrent();
+        return temp.getData();
+    }
+
+    /**
+     * Prints out all the data values in the queue.
+     */
+    void displayQueue() {
+        iterator.reset();
+        while (true) {
+            if (!iterator.atEnd()) {
+                iterator.getCurrent().displayLink();
+                iterator.nextLink();
+            } else {
+                iterator.getCurrent().displayLink();
+                System.out.println();
+                break;
+            }
+        }
+    }
+
+    boolean isEmpty() {
+        return (first == null);
+    }
+}
+
+/**
+ * Creates a priority queue which orders data in ascending order.
+ */
+class PriorityQueue extends LinkedListQueue {
+
+    PriorityQueue(long d) {
+        super(d);
+    }
+
+    /**
      * Inserts a data value into a new link at the appropriate location in the queue.
      */
+    @Override
     void insert(long d) {
         if (isEmpty()) {
             // If queue is empty, make the data the first link.
@@ -124,42 +198,6 @@ class PriorityQueue {
         Link link = new Link(d);
         iterator.getCurrent().setNext(link);
     }
-
-    /**
-     * Removes and returns the next element in the queue.
-     */
-    long dequeue() {
-        if (isEmpty()) {
-            System.out.println("Queue is empty.");
-            return -1;
-        }
-        Link temp = first;
-        iterator.reset();
-        iterator.nextLink();
-        first = iterator.getCurrent();
-        return temp.getData();
-    }
-
-    /**
-     * Prints out all the data values in the queue.
-     */
-    void displayQueue() {
-        iterator.reset();
-        while (true) {
-            if (!iterator.atEnd()) {
-                iterator.getCurrent().displayLink();
-                iterator.nextLink();
-            } else {
-                iterator.getCurrent().displayLink();
-                System.out.println();
-                break;
-            }
-        }
-    }
-
-    private boolean isEmpty() {
-        return (first == null);
-    }
 }
 
 class Deque {
@@ -195,9 +233,9 @@ class Link {
 class ListIterator {
     private Link current;
     private Link previous;
-    private PriorityQueue list;
+    private LinkedListQueue list;
 
-    ListIterator(PriorityQueue list) {
+    ListIterator(LinkedListQueue list) {
         this.list = list;
         reset();
     }
