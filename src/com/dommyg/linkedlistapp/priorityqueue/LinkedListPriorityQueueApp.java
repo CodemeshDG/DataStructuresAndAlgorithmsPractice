@@ -1,16 +1,13 @@
-package com.dommyg.linkedlistapp;
+package com.dommyg.linkedlistapp.priorityqueue;
 
 /**
  * Allows for practice with linked lists. Practice problems are detailed below.
  *
  * 5.1 Implement a priority queue based on a sorted linked list. The remove operation on the priority queue should
  * remove the item with the smallest key.
- *
- * 5.2 Implement a deque based on a doubly linked list. The user should be able to carry out the normal operations on
- * the deque.
  */
 
-public class LinkedListApp {
+public class LinkedListPriorityQueueApp {
 
     public static void main(String[] args) {
         PriorityQueue priorityQueue = new PriorityQueue(6);
@@ -162,11 +159,6 @@ class PriorityQueue {
     }
 }
 
-class Deque {
-
-
-}
-
 class Link {
     private long data;
     private Link next;
@@ -227,5 +219,5 @@ class ListIterator {
     Link getPrevious() {
         return previous;
     }
-
 }
+
