@@ -67,7 +67,9 @@ public class RecursionApp {
         //Item # 4 weighing 6 is too large.
         //Currently 5 weight remains free in knapsack.
         //Item # 5 weighing 5 fits! Target weight reached!
-        knapsackSolver.solve(20, array);
+//        knapsackSolver.solve(20, array);
+
+        knapsackSolver.configureKnapsack2(20, array, 0);
 
         System.out.println();
 
@@ -119,7 +121,7 @@ public class RecursionApp {
         //No more items to try. Must remove an item and try a new combination.
         //Trying again from the start.
         //Could not reach target weight with these items.
-        knapsackSolver.solve(22, array);
+//        knapsackSolver.solve(22, array);
     }
 
 }
@@ -187,6 +189,31 @@ class KnapsackSolver {
             }
         }
         System.out.println("No more items to try. Must remove an item and try a new combination.");
+        return false;
+    }
+
+    boolean configureKnapsack2(int targetWeight, int[] items, int index) {
+//        System.out.println("Knapsack is empty. Putting in item #" + (index + 1) + " weighing " + items[index] + ".");
+
+        for (int i = index; i < items.length - 1; i++) {
+            System.out.println("Putting in item #" + (index + 1) + " weighing " + items[index] + ".");
+            targetWeight -= items[i];
+            System.out.println("Currently " + targetWeight + " weight remains free in knapsack.");
+
+            if (targetWeight == 0) {
+                System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " fits! Target weight reached!");
+                return true;
+            }
+            if (targetWeight < 0) {
+                System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " is too large.");
+                return false;
+            }
+            System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " fits!");
+
+            if (configureKnapsack(targetWeight, items, i + 1)) {
+                return true;
+            }
+        }
         return false;
     }
 }
