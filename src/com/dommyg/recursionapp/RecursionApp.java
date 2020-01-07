@@ -125,17 +125,17 @@ public class RecursionApp {
         //Could not reach target weight with these items.
 //        knapsackSolver.solve(22, array);
 
-        int[] players = new int[5];
-
-        players[0] = 1;
-        players[1] = 2;
-        players[2] = 3;
-        players[3] = 4;
-        players[4] = 5;
-
-        TeamSorter teamSorter = new TeamSorter();
-
-        teamSorter.showTeams(players, 3);
+//        int[] players = new int[5];
+//
+//        players[0] = 1;
+//        players[1] = 2;
+//        players[2] = 3;
+//        players[3] = 4;
+//        players[4] = 5;
+//
+//        TeamSorter teamSorter = new TeamSorter();
+//
+//        teamSorter.showTeams(players, 3);
     }
 
 }
@@ -234,20 +234,12 @@ class KnapsackSolver {
 
 class TeamSorter {
 
-    void showTeams(int[] players, int teamSize) {
-        int[] combination = new int[teamSize];
-        calculateTeams(players, combination, teamSize, 0, 0);
-    }
-
-    private void calculateTeams(int[] players, int[] combination, int teamSize, int playersIndex, int combinationIndex) {
-        if (teamSize == 1) {
-            combination[combinationIndex] = players[playersIndex];
-            System.out.println(Arrays.toString(combination));
-            return;
-        }
-        for (int i = playersIndex; i < players.length; i++) {
-            combination[combinationIndex] = players[playersIndex];
-            calculateTeams(players, combination, teamSize - 1, playersIndex + 1, combinationIndex + 1);
-        }
-    }
+//    void showTeams(int[] players, int teamSize) {
+//        System.out.println(calculateTeams());
+//    }
+//
+//    private int[] calculateTeams(int[] players, int[] combination, int teamSize, int playersIndex, int combinationIndex) {
+//        // Take first element in array
+//        //
+//    }
 }
