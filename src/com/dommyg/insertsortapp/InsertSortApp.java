@@ -2,17 +2,17 @@ package com.dommyg.insertsortapp;
 
 /**
  * Allows for practice with insert sorting. Practice problems are detailed below.
- *
+ * <p>
  * 3.2 Add a method called median() to the ArrayInsert class. This method should return the median value in the array.
  * (Recall that in a group of numbers half are larger than the median and half are smaller.) Do it the easy way.
- *
+ * <p>
  * 3.3 Add a method called noDups() that removes duplicates from a previously sorted array without disrupting the order.
  * (You can use the insertionSort() method to sort the data, or you can simply use main() to insert the data in sorted
  * order.) One can imagine schemes in which all the items from the place where a duplicate was discovered to the end of
  * the array would be shifted down one space every time a duplicate was discovered, but this would lead to slow O(N^2)
  * time, at least when there were a lot of duplicates. In your algorithm, make sure no item is moved more than once, no
  * matter how many duplicates there are. This will give you an algorithm with O(N) time.
- *
+ * <p>
  * 3.5 Modify the insertionSort() method so it counts the number of copies and the number of comparisons it makes during
  * a sort and displays the totals. To count comparisons, you'll need to break up the double condition in the inner while
  * loop. Use this program to measure the number of copies and comparisons for different amounts of inversely sorted data.
@@ -145,11 +145,11 @@ class ArrayInsert {
             if (compareValue == array[i + 1]) {
                 // Next cell is a duplicate. Add one to shift value.
                 shift++;
-                System.out.println("Value is " + array[i+1] + ". It is a duplicate! Adding one to shift. Shift is now " + shift);
+                System.out.println("Value is " + array[i + 1] + ". It is a duplicate! Adding one to shift. Shift is now " + shift);
             } else {
                 // Next cell is not a duplicate.
                 compareValue = array[i + 1];
-                System.out.println("Value is " + array[i+1] + ". It is not a duplicate. CompareValue is now " + compareValue);
+                System.out.println("Value is " + array[i + 1] + ". It is not a duplicate. CompareValue is now " + compareValue);
                 if (shift >= 0) {
                     // At least one duplicate has been removed thus far;
                     // shift value back.

@@ -2,9 +2,9 @@ package com.dommyg.orderedarrayapp;
 
 /**
  * Allows for practice with binary searching in ordered arrays. Practice problems are detailed below.
- *
+ * <p>
  * 2.4 Modify the OrderedArrayApp so that the insert() and delete() routines, as well as find(), use a binary search.
- *
+ * <p>
  * 2.5 Add a merge() method to the OrderedArray class so that you can merge two ordered source arrays into an ordered
  * destination array. Write code in main() that inserts some random numbers into the two source arrays, invokes merge(),
  * and displays the contents of the resulting destination array. The source arrays may hold different numbers of items.

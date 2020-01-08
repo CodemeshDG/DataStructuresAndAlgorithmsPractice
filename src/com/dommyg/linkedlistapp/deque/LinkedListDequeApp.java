@@ -2,7 +2,7 @@ package com.dommyg.linkedlistapp.deque;
 
 /**
  * Allows for practice with linked lists. Practice problems are detailed below.
- *
+ * <p>
  * 5.2 Implement a deque based on a doubly linked list. The user should be able to carry out the normal operations on
  * the deque.
  */

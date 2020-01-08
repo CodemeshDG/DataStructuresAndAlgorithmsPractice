@@ -2,12 +2,12 @@ package com.dommyg.queueapp;
 
 /**
  * Allows for practice with queues. Practice problems are detailed below.
- *
+ * <p>
  * 4.1 Write a method for the Queue class which displays the contents of the queue. Note that this does not mean simply
  * displaying the contents of the underlying array. You should show the queue contents from the first item inserted to
  * the last, without indicated to the viewer whether the sequence is broken by wrapping around the end of the array. Be
  * careful that one item and no items display properly, no matter where front and rear are.
- *
+ * <p>
  * 4.2 Create a Deque class based on the discussion of deques (double-ended queues) in this chapter. It should include
  * insertLeft(), insertRight(), removeLeft(), removeRight(), isEmpty(), and isFull() methods. It will need to support
  * wrap-around at the end of the array, as queues do.

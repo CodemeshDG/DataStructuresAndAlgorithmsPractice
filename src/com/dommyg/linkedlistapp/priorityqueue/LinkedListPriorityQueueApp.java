@@ -2,7 +2,7 @@ package com.dommyg.linkedlistapp.priorityqueue;
 
 /**
  * Allows for practice with linked lists. Practice problems are detailed below.
- *
+ * <p>
  * 5.1 Implement a priority queue based on a sorted linked list. The remove operation on the priority queue should
  * remove the item with the smallest key.
  */

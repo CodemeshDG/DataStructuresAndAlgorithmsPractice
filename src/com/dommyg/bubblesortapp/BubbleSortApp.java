@@ -2,12 +2,12 @@ package com.dommyg.bubblesortapp;
 
 /**
  * Allows for practice with bubble sorting. Practice problems are detailed below.
- *
+ * <p>
  * 3.1 In BubbleSortApp, the in index always goes from left to right, finding the largest item and carrying it toward
  * out on the right. Modify the bubbleSort() method so that it's bidirectional. This means the in index will first carry
  * the largest item from left to right as before, but when it reaches out, it will reverse and carry the smallest item
  * from right to left. You'll need two outer indexes, one on the right (the old out) and another on the left.
- *
+ * <p>
  * 3.4 Another simple sort is the odd-even sort. The idea is to repeatedly make two passes through the array. On the
  * first pass you look at all the pairs of items, array[j] and array[j+1], where j is odd (j = 1, 3, 5, ...). If their
  * key values are out of order, you swap them. On the second pass you do the same for all the even values
