@@ -54,6 +54,18 @@ public class RecursionApp {
 
         knapsackSolver.solve(12, array);
 
+        System.out.println();
+
+        int[] array2 = new int[6];
+
+        array2[0] = 14;
+        array2[1] = 2;
+        array2[2] = 85;
+        array2[3] = 22;
+        array2[4] = 61;
+        array2[5] = 9;
+
+        knapsackSolver.solve(203, array2);
     }
 
 }
@@ -88,147 +100,98 @@ class Calculator {
     }
 }
 
+/**
+ * Provides a solve method which reports if an array of values contains a combination which matches a target value
+ * (based on the knapsack problem). Will print out the first combination it finds. Any instance of this class can be
+ * reused to solve with multiple arrays.
+ */
 class KnapsackSolver {
     private ArrayList<Integer> knapsack;
     private boolean isFull;
 
+    /**
+     * Prints out if a combination of items weights can be found which will equal a target weight.
+     *
+     * @param targetWeight The weight which the item combinations will be measured against.
+     * @param items        The array of item weights.
+     */
     void solve(int targetWeight, int[] items) {
+        // Setting the knapsack to a new ArrayList and the isFull boolean to false within this method allows for a
+        // single instance of the KnapsackSolver object to be reused with any amount of arrays.
         knapsack = new ArrayList<>();
         isFull = false;
 
-        solve(targetWeight, items, 0,0);
+        solve(targetWeight, items, 0, 0);
+
+        if (!isFull) {
+            // All recursive calls returned and the knapsack is not full.
+            System.out.println("These items cannot be used to reach the target weight.");
+        }
     }
 
+    /**
+     * Recursively configures the knapsack with values from the items array until it finds an appropriate combination
+     * or runs out of items. Will print out the successful combination of items it discovers.
+     */
     private void solve(int targetWeight, int[] items, int itemIndex, int knapsackIndex) {
-        while(true) {
+        while (true) {
+            System.out.print("The knapsack currently has " + knapsackIndex + " items in it. ");
+
+            // Take an item from the collection.
             int currentItem = items[itemIndex];
             System.out.println("Trying to reach " + targetWeight + " weight.");
             if (currentItem == targetWeight) {
+                // Put in the current item. The current item matches the target weight. The knapsack is now full.
                 System.out.println("Adding item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
                 knapsack.add(knapsackIndex, currentItem);
                 System.out.println("Target weight reached with items weighing " + knapsack.toString() + ".");
                 isFull = true;
                 return;
+
             } else if (currentItem > targetWeight) {
-                System.out.println("Adding item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
-                System.out.println("Too heavy! Removing this item.");
-                itemIndex++;
-            } else if (currentItem < targetWeight && itemIndex < items.length - 1) {
+                // Put in the current item. It is too large.
                 System.out.println("Adding item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
                 knapsack.add(knapsackIndex, currentItem);
                 targetWeight -= currentItem;
-                itemIndex++;
-                knapsackIndex++;
-                solve(targetWeight, items, itemIndex, knapsackIndex);
+                System.out.print("Too heavy! ");
+
+            } else if (itemIndex < items.length - 1) {
+                // The items fits and there are more items which can be placed in the knapsack. Put in the current item,
+                // and call the function again on the next item for the next knapsack space.
+                System.out.println("Adding item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
+                knapsack.add(knapsackIndex, currentItem);
+                targetWeight -= currentItem;
+                solve(targetWeight, items, itemIndex + 1, knapsackIndex + 1);
+                if (isFull) {
+                    // The recursive call returned and the knapsack is full.
+                    return;
+                }
+
             } else {
+                // The items fits but there are no more items to add.
                 System.out.println("No more items to add...");
                 return;
             }
-            itemIndex++;
-            knapsackIndex--;
-            if (isFull || itemIndex < items.length - 1) {
+
+            // Either the recursive call returned and the knapsack is not full (meaning the item inserted on THIS call
+            // will not create an appropriate combination with any previous items inserted) or the item inserted on this
+            // call was too large. Both possible instances require us to remove the item inserted on this call.
+            System.out.println("Removing item weighing " + knapsack.get(knapsackIndex) + ".");
+            knapsack.remove(knapsackIndex);
+
+            if (itemIndex >= items.length - 1) {
+                // There are no more items to add.
+                System.out.println("No more items to add...");
                 return;
             }
-            System.out.println("Taking out item...");
-            knapsack.remove(knapsackIndex);
+
+            // There are more items to add. Adjust the target weight to reflect the current item being removed, and try
+            // the next item for the next loop.
+            targetWeight += currentItem;
+            itemIndex++;
+
         }
     }
-
-//    private void solve(int targetWeight, int[] items, int itemIndex) {
-//        while(true) {
-//            System.out.println("Trying to reach " + targetWeight + " weight.");
-//            knapsack.add(knapsackIndex, items[itemIndex]);
-//            targetWeight -= items[itemIndex];
-//            System.out.println("Added item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
-//            if (targetWeight == 0) {
-//                System.out.println("Target weight reached with items weighing " + knapsack.toString() + ".");
-//                isFull = true;
-//                return;
-//            }
-//            if (targetWeight < 0) {
-//                System.out.println("Too heavy! Removing this item.");
-//                knapsack.remove(knapsackIndex);
-//                knapsackIndex--;
-//            } else if (itemIndex == items.length - 1) {
-//                System.out.println("There are no more items. Removing item weighing " + knapsack.get(knapsackIndex) + ".");
-//                knapsack.remove(knapsackIndex);
-//                knapsackIndex--;
-//                return;
-//            }
-//
-//            itemIndex++;
-//            knapsackIndex++;
-//            solve(targetWeight, items, itemIndex);
-//
-//            targetWeight += items[itemIndex - 1];
-//            itemIndex++;
-//
-//            if(isFull || itemIndex == items.length) {
-//                return;
-//            }
-//
-//        }
-//    }
-
-//    void solve(int targetWeight, int[] items) {
-//        for (int i = 0; i < items.length - 1; i++) {
-//            System.out.println("Knapsack is empty. Putting in item #" + (i + 1) + " weighing " + items[i] + ".");
-//            if (configureKnapsack(targetWeight - items[i], items, i + 1)) {
-//                return;
-//            } else {
-//                System.out.println("Trying again from the start.");
-//            }
-//        }
-//        System.out.println("Could not reach target weight with these items.");
-//    }
-//
-//    private boolean configureKnapsack(int targetWeight, int[] items, int index) {
-//        System.out.println("Currently " + targetWeight + " weight remains free in knapsack.");
-//        targetWeight -= items[index];
-//
-//        if (targetWeight == 0) {
-//            System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " fits! Target weight reached!");
-//            return true;
-//        }
-//        if (targetWeight < 0) {
-//            System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " is too large.");
-//            return false;
-//        }
-//        System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " fits!");
-//
-//        for (int i = index; i < items.length - 1; i++) {
-//            if (configureKnapsack(targetWeight, items, i + 1)) {
-//                return true;
-//            }
-//        }
-//        System.out.println("No more items to try. Must remove an item and try a new combination.");
-//        return false;
-//    }
-//
-//    boolean configureKnapsack2(int targetWeight, int[] items, int index) {
-////        System.out.println("Knapsack is empty. Putting in item #" + (index + 1) + " weighing " + items[index] + ".");
-//
-//        for (int i = index; i < items.length - 1; i++) {
-//            System.out.println("Putting in item #" + (index + 1) + " weighing " + items[index] + ".");
-//            targetWeight -= items[i];
-//            System.out.println("Currently " + targetWeight + " weight remains free in knapsack.");
-//
-//            if (targetWeight == 0) {
-//                System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " fits! Target weight reached!");
-//                return true;
-//            }
-//            if (targetWeight < 0) {
-//                System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " is too large.");
-//                return false;
-//            }
-//            System.out.println("Item # " + (index + 1) + " weighing " + items[index] + " fits!");
-//
-//            if (configureKnapsack(targetWeight, items, i + 1)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 }
 
 class TeamSorter {
