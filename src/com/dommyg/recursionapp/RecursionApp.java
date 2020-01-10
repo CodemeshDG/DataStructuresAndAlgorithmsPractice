@@ -21,7 +21,7 @@ import java.util.Arrays;
  * <p>
  * 6.5 Implements a recursive approach to showing all the teams that can be created from a group (n things taken k at
  * a time). Write the recursive showTeams() method and a main() method to prompt the user for the group size and the
- * team size to provide arguments for showTeam(), which then displays all the possible combinations.
+ * team size to provide arguments for showTeams(), which then displays all the possible combinations.
  */
 public class RecursionApp {
 
@@ -52,6 +52,36 @@ public class RecursionApp {
         array[3] = 8;
         array[4] = 4;
 
+        // PRINT: The knapsack currently has 0 items in it. Trying to reach 12 weight.
+        //Adding item #1 weighing 6.
+        //The knapsack currently has 1 items in it. Trying to reach 6 weight.
+        //Adding item #2 weighing 3.
+        //The knapsack currently has 2 items in it. Trying to reach 3 weight.
+        //Adding item #3 weighing 2.
+        //The knapsack currently has 3 items in it. Trying to reach 1 weight.
+        //Adding item #4 weighing 8.
+        //Too heavy! Removing item weighing 8.
+        //The knapsack currently has 3 items in it. Trying to reach 1 weight.
+        //Adding item #5 weighing 4.
+        //Too heavy! Removing item weighing 4.
+        //No more items to add...
+        //Removing item weighing 2.
+        //The knapsack currently has 2 items in it. Trying to reach 3 weight.
+        //Adding item #4 weighing 8.
+        //Too heavy! Removing item weighing 8.
+        //The knapsack currently has 2 items in it. Trying to reach 3 weight.
+        //Adding item #5 weighing 4.
+        //Too heavy! Removing item weighing 4.
+        //No more items to add...
+        //Removing item weighing 3.
+        //The knapsack currently has 1 items in it. Trying to reach 6 weight.
+        //Adding item #3 weighing 2.
+        //The knapsack currently has 2 items in it. Trying to reach 4 weight.
+        //Adding item #4 weighing 8.
+        //Too heavy! Removing item weighing 8.
+        //The knapsack currently has 2 items in it. Trying to reach 4 weight.
+        //Adding item #5 weighing 4.
+        //Target weight reached with items weighing [6, 2, 4].
         knapsackSolver.solve(12, array);
 
         System.out.println();
@@ -65,7 +95,302 @@ public class RecursionApp {
         array2[4] = 61;
         array2[5] = 9;
 
+        // PRINT: The knapsack currently has 0 items in it. Trying to reach 203 weight.
+        //Adding item #1 weighing 14.
+        //The knapsack currently has 1 items in it. Trying to reach 189 weight.
+        //Adding item #2 weighing 2.
+        //The knapsack currently has 2 items in it. Trying to reach 187 weight.
+        //Adding item #3 weighing 85.
+        //The knapsack currently has 3 items in it. Trying to reach 102 weight.
+        //Adding item #4 weighing 22.
+        //The knapsack currently has 4 items in it. Trying to reach 80 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 5 items in it. Trying to reach 19 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 4 items in it. Trying to reach 80 weight.
+        //No more items to add...
+        //Removing item weighing 22.
+        //The knapsack currently has 3 items in it. Trying to reach 102 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 4 items in it. Trying to reach 41 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 102 weight.
+        //No more items to add...
+        //Removing item weighing 85.
+        //The knapsack currently has 2 items in it. Trying to reach 187 weight.
+        //Adding item #4 weighing 22.
+        //The knapsack currently has 3 items in it. Trying to reach 165 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 4 items in it. Trying to reach 104 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 165 weight.
+        //No more items to add...
+        //Removing item weighing 22.
+        //The knapsack currently has 2 items in it. Trying to reach 187 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 126 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 187 weight.
+        //No more items to add...
+        //Removing item weighing 2.
+        //The knapsack currently has 1 items in it. Trying to reach 189 weight.
+        //Adding item #3 weighing 85.
+        //The knapsack currently has 2 items in it. Trying to reach 104 weight.
+        //Adding item #4 weighing 22.
+        //The knapsack currently has 3 items in it. Trying to reach 82 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 4 items in it. Trying to reach 21 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 82 weight.
+        //No more items to add...
+        //Removing item weighing 22.
+        //The knapsack currently has 2 items in it. Trying to reach 104 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 43 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 104 weight.
+        //No more items to add...
+        //Removing item weighing 85.
+        //The knapsack currently has 1 items in it. Trying to reach 189 weight.
+        //Adding item #4 weighing 22.
+        //The knapsack currently has 2 items in it. Trying to reach 167 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 106 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 167 weight.
+        //No more items to add...
+        //Removing item weighing 22.
+        //The knapsack currently has 1 items in it. Trying to reach 189 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 128 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 1 items in it. Trying to reach 189 weight.
+        //No more items to add...
+        //Removing item weighing 14.
+        //The knapsack currently has 0 items in it. Trying to reach 203 weight.
+        //Adding item #2 weighing 2.
+        //The knapsack currently has 1 items in it. Trying to reach 201 weight.
+        //Adding item #3 weighing 85.
+        //The knapsack currently has 2 items in it. Trying to reach 116 weight.
+        //Adding item #4 weighing 22.
+        //The knapsack currently has 3 items in it. Trying to reach 94 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 4 items in it. Trying to reach 33 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 94 weight.
+        //No more items to add...
+        //Removing item weighing 22.
+        //The knapsack currently has 2 items in it. Trying to reach 116 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 55 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 116 weight.
+        //No more items to add...
+        //Removing item weighing 85.
+        //The knapsack currently has 1 items in it. Trying to reach 201 weight.
+        //Adding item #4 weighing 22.
+        //The knapsack currently has 2 items in it. Trying to reach 179 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 118 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 179 weight.
+        //No more items to add...
+        //Removing item weighing 22.
+        //The knapsack currently has 1 items in it. Trying to reach 201 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 140 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 1 items in it. Trying to reach 201 weight.
+        //No more items to add...
+        //Removing item weighing 2.
+        //The knapsack currently has 0 items in it. Trying to reach 203 weight.
+        //Adding item #3 weighing 85.
+        //The knapsack currently has 1 items in it. Trying to reach 118 weight.
+        //Adding item #4 weighing 22.
+        //The knapsack currently has 2 items in it. Trying to reach 96 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 3 items in it. Trying to reach 35 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 96 weight.
+        //No more items to add...
+        //Removing item weighing 22.
+        //The knapsack currently has 1 items in it. Trying to reach 118 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 57 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 1 items in it. Trying to reach 118 weight.
+        //No more items to add...
+        //Removing item weighing 85.
+        //The knapsack currently has 0 items in it. Trying to reach 203 weight.
+        //Adding item #4 weighing 22.
+        //The knapsack currently has 1 items in it. Trying to reach 181 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 2 items in it. Trying to reach 120 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 1 items in it. Trying to reach 181 weight.
+        //No more items to add...
+        //Removing item weighing 22.
+        //The knapsack currently has 0 items in it. Trying to reach 203 weight.
+        //Adding item #5 weighing 61.
+        //The knapsack currently has 1 items in it. Trying to reach 142 weight.
+        //No more items to add...
+        //Removing item weighing 61.
+        //The knapsack currently has 0 items in it. Trying to reach 203 weight.
+        //No more items to add...
+        //These items cannot be used to reach the target weight.
         knapsackSolver.solve(203, array2);
+
+        System.out.println();
+
+        int[] teamArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        TeamSorter teamSorter = new TeamSorter();
+
+        // PRINT: [1, 2, 3]
+        //[1, 2, 4]
+        //[1, 2, 5]
+        //[1, 2, 6]
+        //[1, 2, 7]
+        //[1, 2, 8]
+        //[1, 2, 9]
+        //[1, 2, 10]
+        //[1, 3, 4]
+        //[1, 3, 5]
+        //[1, 3, 6]
+        //[1, 3, 7]
+        //[1, 3, 8]
+        //[1, 3, 9]
+        //[1, 3, 10]
+        //[1, 4, 5]
+        //[1, 4, 6]
+        //[1, 4, 7]
+        //[1, 4, 8]
+        //[1, 4, 9]
+        //[1, 4, 10]
+        //[1, 5, 6]
+        //[1, 5, 7]
+        //[1, 5, 8]
+        //[1, 5, 9]
+        //[1, 5, 10]
+        //[1, 6, 7]
+        //[1, 6, 8]
+        //[1, 6, 9]
+        //[1, 6, 10]
+        //[1, 7, 8]
+        //[1, 7, 9]
+        //[1, 7, 10]
+        //[1, 8, 9]
+        //[1, 8, 10]
+        //[1, 9, 10]
+        //[2, 3, 4]
+        //[2, 3, 5]
+        //[2, 3, 6]
+        //[2, 3, 7]
+        //[2, 3, 8]
+        //[2, 3, 9]
+        //[2, 3, 10]
+        //[2, 4, 5]
+        //[2, 4, 6]
+        //[2, 4, 7]
+        //[2, 4, 8]
+        //[2, 4, 9]
+        //[2, 4, 10]
+        //[2, 5, 6]
+        //[2, 5, 7]
+        //[2, 5, 8]
+        //[2, 5, 9]
+        //[2, 5, 10]
+        //[2, 6, 7]
+        //[2, 6, 8]
+        //[2, 6, 9]
+        //[2, 6, 10]
+        //[2, 7, 8]
+        //[2, 7, 9]
+        //[2, 7, 10]
+        //[2, 8, 9]
+        //[2, 8, 10]
+        //[2, 9, 10]
+        //[3, 4, 5]
+        //[3, 4, 6]
+        //[3, 4, 7]
+        //[3, 4, 8]
+        //[3, 4, 9]
+        //[3, 4, 10]
+        //[3, 5, 6]
+        //[3, 5, 7]
+        //[3, 5, 8]
+        //[3, 5, 9]
+        //[3, 5, 10]
+        //[3, 6, 7]
+        //[3, 6, 8]
+        //[3, 6, 9]
+        //[3, 6, 10]
+        //[3, 7, 8]
+        //[3, 7, 9]
+        //[3, 7, 10]
+        //[3, 8, 9]
+        //[3, 8, 10]
+        //[3, 9, 10]
+        //[4, 5, 6]
+        //[4, 5, 7]
+        //[4, 5, 8]
+        //[4, 5, 9]
+        //[4, 5, 10]
+        //[4, 6, 7]
+        //[4, 6, 8]
+        //[4, 6, 9]
+        //[4, 6, 10]
+        //[4, 7, 8]
+        //[4, 7, 9]
+        //[4, 7, 10]
+        //[4, 8, 9]
+        //[4, 8, 10]
+        //[4, 9, 10]
+        //[5, 6, 7]
+        //[5, 6, 8]
+        //[5, 6, 9]
+        //[5, 6, 10]
+        //[5, 7, 8]
+        //[5, 7, 9]
+        //[5, 7, 10]
+        //[5, 8, 9]
+        //[5, 8, 10]
+        //[5, 9, 10]
+        //[6, 7, 8]
+        //[6, 7, 9]
+        //[6, 7, 10]
+        //[6, 8, 9]
+        //[6, 8, 10]
+        //[6, 9, 10]
+        //[7, 8, 9]
+        //[7, 8, 10]
+        //[7, 9, 10]
+        //[8, 9, 10]
+        //There are 120 combinations.
+        teamSorter.showTeams(teamArray, 3);
+
+        System.out.println();
+
+        int[] teamArray2 = {4, 6, 8, 11, 14, 15, 16, 19, 23, 24, 26, 28, 30, 31, 32, 33, 34, 35, 37, 38, 40};
+
+        // PRINT: (A ton of combinations which overflow the run screen)
+        // There are 352716 combinations.
+        teamSorter.showTeams(teamArray2, 10);
     }
 
 }
@@ -132,6 +457,11 @@ class KnapsackSolver {
     /**
      * Recursively configures the knapsack with values from the items array until it finds an appropriate combination
      * or runs out of items. Will print out the successful combination of items it discovers.
+     *
+     * @param targetWeight  The current weight remaining before reaching the target weight provided by the user.
+     * @param items         The array of item weights provided by the user.
+     * @param itemIndex     The current item to be used in the knapsack.
+     * @param knapsackIndex The current item number in the knapsack being modified.
      */
     private void solve(int targetWeight, int[] items, int itemIndex, int knapsackIndex) {
         while (true) {
@@ -189,19 +519,72 @@ class KnapsackSolver {
             // the next item for the next loop.
             targetWeight += currentItem;
             itemIndex++;
-
         }
     }
 }
 
+/**
+ * Provides a showTeams method which, given an array of player numbers, will print out all combinations of a desired
+ * team size and the total combination amount. Any instance of this class can be reused with multiple arrays.
+ */
 class TeamSorter {
+    long total;
 
-//    void showTeams(int[] players, int teamSize) {
-//        System.out.println(calculateTeams());
-//    }
-//
-//    private int[] calculateTeams(int[] players, int[] combination, int teamSize, int playersIndex, int combinationIndex) {
-//        // Take first element in array
-//        //
-//    }
+    /**
+     * Prints out all combinations of player numbers (not considering order) and the total combination amount.
+     *
+     * @param players  The array of player numbers.
+     * @param teamSize The desired size of a team.
+     */
+    void showTeams(int[] players, int teamSize) {
+        if (players.length < teamSize) {
+            // The team size is larger than the amount of players.
+            System.out.println("Cannot make a team of size " + teamSize + " with only " + players.length + " players.");
+            return;
+        }
+
+        // Set the total amount of combos to zero (to allow reuse of any TeamSorter instance).
+        total = 0;
+        int playersIndexEndPoint = (players.length - teamSize);
+
+        calculateTeams(players, new int[teamSize], teamSize, playersIndexEndPoint, 0, 0);
+
+        System.out.println("There are " + total + " combinations.");
+    }
+
+    /**
+     * Prints out possible player combinations and increases the total counter each time a combination is printed.
+     *
+     * @param players              The array of player numbers provided by the user.
+     * @param combination          The array which holds possible combinations.
+     * @param teamSize             The size of the team as chosen by the user.
+     * @param playersIndexEndPoint The index position in the player array where the final combination can be made by
+     *                             taking it and all other indexes after it.
+     * @param playersIndex         The current player to be used in the combination.
+     * @param combinationIndex     The current position of the combination array.
+     */
+    private void calculateTeams(int[] players, int[] combination, int teamSize, int playersIndexEndPoint, int playersIndex, int combinationIndex) {
+        while (true) {
+            // Add a player to the combination.
+            combination[combinationIndex] = players[playersIndex];
+
+            if (combinationIndex + 1 == teamSize) {
+                // A combination is complete. Increase the total combination count.
+                System.out.println(Arrays.toString(combination));
+                total++;
+            } else {
+                // Combination is incomplete.
+                calculateTeams(players, combination, teamSize, playersIndexEndPoint + 1, playersIndex + 1, combinationIndex + 1);
+            }
+
+            // Move to next player in array.
+            playersIndex++;
+
+            if (playersIndex > playersIndexEndPoint) {
+                // The index of this next player is beyond the index end point. A combination cannot be made with the
+                // remaining players.
+                return;
+            }
+        }
+    }
 }
