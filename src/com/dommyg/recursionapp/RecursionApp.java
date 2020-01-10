@@ -90,52 +90,85 @@ class Calculator {
 
 class KnapsackSolver {
     private ArrayList<Integer> knapsack;
-    private int knapsackIndex;
     private boolean isFull;
 
     void solve(int targetWeight, int[] items) {
         knapsack = new ArrayList<>();
-        knapsackIndex = 0;
         isFull = false;
 
-        solve(targetWeight, items, 0);
+        solve(targetWeight, items, 0,0);
     }
 
-    private void solve(int targetWeight, int[] items, int itemIndex) {
+    private void solve(int targetWeight, int[] items, int itemIndex, int knapsackIndex) {
         while(true) {
+            int currentItem = items[itemIndex];
             System.out.println("Trying to reach " + targetWeight + " weight.");
-            knapsack.add(knapsackIndex, items[itemIndex]);
-            targetWeight -= items[itemIndex];
-            System.out.println("Added item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
-            if (targetWeight == 0) {
+            if (currentItem == targetWeight) {
+                System.out.println("Adding item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
+                knapsack.add(knapsackIndex, currentItem);
                 System.out.println("Target weight reached with items weighing " + knapsack.toString() + ".");
                 isFull = true;
                 return;
-            }
-            if (targetWeight < 0) {
+            } else if (currentItem > targetWeight) {
+                System.out.println("Adding item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
                 System.out.println("Too heavy! Removing this item.");
-                knapsack.remove(knapsackIndex);
-                knapsackIndex--;
-            } else if (itemIndex == items.length - 1) {
-                System.out.println("There are no more items. Removing item weighing " + knapsack.get(knapsackIndex) + ".");
-                knapsack.remove(knapsackIndex);
-                knapsackIndex--;
+                itemIndex++;
+            } else if (currentItem < targetWeight && itemIndex < items.length - 1) {
+                System.out.println("Adding item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
+                knapsack.add(knapsackIndex, currentItem);
+                targetWeight -= currentItem;
+                itemIndex++;
+                knapsackIndex++;
+                solve(targetWeight, items, itemIndex, knapsackIndex);
+            } else {
+                System.out.println("No more items to add...");
                 return;
             }
-
             itemIndex++;
-            knapsackIndex++;
-            solve(targetWeight, items, itemIndex);
-
-            targetWeight += items[itemIndex - 1];
-            itemIndex++;
-
-            if(isFull || itemIndex == items.length) {
+            knapsackIndex--;
+            if (isFull || itemIndex < items.length - 1) {
                 return;
             }
-
+            System.out.println("Taking out item...");
+            knapsack.remove(knapsackIndex);
         }
     }
+
+//    private void solve(int targetWeight, int[] items, int itemIndex) {
+//        while(true) {
+//            System.out.println("Trying to reach " + targetWeight + " weight.");
+//            knapsack.add(knapsackIndex, items[itemIndex]);
+//            targetWeight -= items[itemIndex];
+//            System.out.println("Added item #" + (itemIndex + 1) + " weighing " + items[itemIndex] + ".");
+//            if (targetWeight == 0) {
+//                System.out.println("Target weight reached with items weighing " + knapsack.toString() + ".");
+//                isFull = true;
+//                return;
+//            }
+//            if (targetWeight < 0) {
+//                System.out.println("Too heavy! Removing this item.");
+//                knapsack.remove(knapsackIndex);
+//                knapsackIndex--;
+//            } else if (itemIndex == items.length - 1) {
+//                System.out.println("There are no more items. Removing item weighing " + knapsack.get(knapsackIndex) + ".");
+//                knapsack.remove(knapsackIndex);
+//                knapsackIndex--;
+//                return;
+//            }
+//
+//            itemIndex++;
+//            knapsackIndex++;
+//            solve(targetWeight, items, itemIndex);
+//
+//            targetWeight += items[itemIndex - 1];
+//            itemIndex++;
+//
+//            if(isFull || itemIndex == items.length) {
+//                return;
+//            }
+//
+//        }
+//    }
 
 //    void solve(int targetWeight, int[] items) {
 //        for (int i = 0; i < items.length - 1; i++) {
